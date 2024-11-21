@@ -17,5 +17,6 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
-      - name: Maven Code Quality
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=$(echo ${{ secrets.SONAR_TOKEN }} | sed 's-/-_-')
+          cache: 'maven'
+      - name: Maven package
+        run: mvn -B package
